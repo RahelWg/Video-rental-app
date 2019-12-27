@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link th:if="${mode == 'development'}" rel="stylesheet" href="/bootstrap.css" th:href="@{/bootstrap.css}" />
+    <link th:if="${mode == 'production'}" rel="stylesheet" href="/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+</head>
+<body>
+
+<div>
+    <form action="" th:action="@{/deleteVideo}" method="POST">
+        <table>
+            <tr>
+                <td><input type="text" placeholder="Video title" name="video_title"/></td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-success">Delete</button>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link th:if="${mode == 'development'}" rel="stylesheet" href="/bootstrap.css" th:href="@{/bootstrap.css}" />
+    <link th:if="${mode == 'production'}" rel="stylesheet" href="/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+</head>
+<body>
+
+<div>
+    <form action="#" th:action="@{/addVideo}" th:object="${video}" method="POST">
+        <table>
+            <tr>
+                <td><input type="text" placeholder="Video title" name="video_title"/></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Price Per video" name="price_per_video"/></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Number of videos" name="nb_video"/></td>
+            </tr>
+            <tr>
+            <td><input type="text" placeholder="Total price" name="total_price"/></td>
+            </tr>
+
+        </table>
+        <button type="submit" class="btn btn-success">Add Video</button>
+    </form>
+</div>
+</body>
+</html>

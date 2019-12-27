@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link th:if="${mode == 'development'}" rel="stylesheet" href="/bootstrap.css" th:href="@{/bootstrap.css}" />
+    <link th:if="${mode == 'production'}" rel="stylesheet" href="/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+</head>
+<body>
+
+<div>
+    <form action="" th:action="@{/create}" method="GET">
+        <button type="submit" class="btn btn-success">Add Video</button>
+    </form>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>VideoTitle</th>
+            <th>VideoType</th>
+            <th>PricePerVideo</th>
+            <th>NbOfVideo</th>
+        </tr>
+
+        <tr th:each="video : ${videos}">
+            <td th:text="${video.id}">Id</td>
+            <td th:text="${video.video_title}">VideoTitle</td>
+            <td th:text="${video.video_type}">VideoType</td>
+            <td th:text="${video.price_per_video}">PricePerVideo</td>
+            <td >
+                <a th:href="@{'/delete/'+${video.id}}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
